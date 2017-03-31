@@ -28,7 +28,8 @@
 (defrule mammal
 	(animal ?name)
 	(warm-blooded ?name)
-	(not (lay-eggs ?name)) => 
+	(not (lays-eggs ?name)) 
+  => 
 	(assert (mammal ?name))
 	(printout t ?name " is a mammal" crlf)
 )
