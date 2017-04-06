@@ -36,7 +36,7 @@
 
 
 (defrule mammal2
-  (animal ?name)
+  (mammal ?name)
   (child-of ?name ?young) =>
   (assert (mammal ?young))
   (printout t ?young " is a mammal" crlf)
