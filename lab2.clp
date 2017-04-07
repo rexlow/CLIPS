@@ -37,3 +37,6 @@
   )
 )
 
+(deffacts start
+  (start-question)
+)
