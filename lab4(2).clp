@@ -3,11 +3,11 @@
   (printout t "Is the starter turning [yes/no]: ")
   (assert (STARTER-TURNING (read))))
 
-(defrule starter-turning
+(defrule starter-turning-yes
   (STARTER-TURNING yes) =>
   (assert (GOT-PETROL)))
 
-(defrule starter-turning
+(defrule starter-turning-no
   (STARTER-TURNING no) =>
   (assert (LIGHTS-WORKING)))
 
@@ -16,24 +16,24 @@
   (printout t "Got any petrol [yes/no]: ")
   (assert (GOT-PETROL (read))))
 
-(defrule got-any-petrol
+(defrule got-any-petrol-yes
   (GOT-PETROL yes) =>
   (printout t "Please call the AA" crlf))
 
-(defrule got-any-petrol
+(defrule got-any-petrol-no
   (GOT-PETROL no) =>
-  (printout t "Please buy some battery" crlf))
+  (printout t "Please buy some petrol" crlf))
 
 (defrule lights-working
   (LIGHTS-WORKING) =>
   (printout t "Is the light working [yes/no]: ")
   (assert (LIGHTS-WORKING (read))))
 
-(defrule lighs-working
+(defrule lighs-working-yes
   (LIGHTS-WORKING yes) =>
   (assert (SOLENOID-CLICK)))
 
-(defrule lighs-working
+(defrule lighs-working-no
   (LIGHTS-WORKING no) =>
   (printout t "Please charge the battery" crlf))
 
@@ -42,11 +42,11 @@
   (printout t "Is the solenoid clicking [yes/no]: ")
   (assert (SOLENOID-CLICK (read))))
 
-(defrule solenoid-click
+(defrule solenoid-click-yes
   (SOLENOID-CLICK yes) =>
   (assert (TERMINAL-CLEAN)))
 
-(defrule solenoid-click
+(defrule solenoid-click-no
   (SOLENOID-CLICK no) =>
   (assert (SOLENOID-FUSE)))
 
@@ -55,11 +55,11 @@
   (printout t "Is the terminal clean [yes/no]: ")
   (assert (TERMINAL-CLEAN (read))))
 
-(defrule terminal-clean
+(defrule terminal-clean-yes
   (TERMINAL-CLEAN yes) =>
   (printout t "Please replace the started" crlf))
 
-(defrule terminal-clean
+(defrule terminal-clean-no
   (TERMINAL-CLEAN no) =>
   (printout t "Please clean the terminal" crlf))
 
@@ -68,10 +68,10 @@
   (printout t "Is the solenoid fuse working [yes/no]: ")
   (assert (SOLENOID-FUSE (read))))
 
-(defrule solenoid-fuse
+(defrule solenoid-fuse-yes
   (SOLENOID-FUSE yes) =>
   (printout t "Please replace the solenoid" crlf))
 
-(defrule solenoid-fuse
+(defrule solenoid-fuse-no
   (SOLENOID-FUSE no) =>
   (printout t "Please replace the fuse" crlf))
