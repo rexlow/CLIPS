@@ -7,3 +7,13 @@
 )
 
 (assert (number 2)(number 3))
+
+(deftemplate add
+  (multislot numbers)
+)
+
+(defrule add-3-numbers
+  (numbers ?x ?y ?z) =>
+  (bind ?total(+ ?x ?y ?z))
+  (printout t ?total crlf)
+)
